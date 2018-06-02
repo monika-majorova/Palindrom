@@ -1,0 +1,12 @@
+{
+  "name": "Palindrom-test",
+  "description": "Tests pro projekt Palindrom",
+  "author": "Monika",
+  "version": "0.0.1",
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  },
+  "scripts": {
+    "test": "jshint palindrom.js"
+  }
+}
