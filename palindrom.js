@@ -27,8 +27,8 @@ function odstranDiakritiku(text) {
 			// Pokud není znak nalezen, nenahrazuj
 			vysledek += text.charAt(i);
 		}
-		return vysledek;
 	}
+	return vysledek;
 }
 
 /**
