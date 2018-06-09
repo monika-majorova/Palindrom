@@ -45,4 +45,4 @@ function obratText(text) {
 	return text.split("").reverse().join("");
 }
 
-module.exports = jePalindrom;  // allows CommonJS/Node.js require()
+module.exports = {jePalindrom, odstranDiakritiku, odstranNealfanumerickeZnaky, obratText};  // allows CommonJS/Node.js require()
