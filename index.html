@@ -4,12 +4,36 @@
 		<meta charset="UTF-8">
 		<title>Palindrom</title>
 		<script src="palindrom.js"></script>
+		<script>
+			function vyhodnotText() {
+				var text = document.palindromVstup.palindromText.value;
+				alert("Test: Vyhodnocuji text \"" + text + "\".");
+				document.getElementById("vysledek").innerHTML = jePalindrom(text) ? "Jedná se o palindrom." : "Toto není palindrom.";
+			}
+		</script>
 	</head>
 	<body>
 		<header>
 			<h1>Palindrom</h1>
 			<p>Aplikace pro zjišťování, zda je zadaný text palindrom</p>
 		</header>
+		<section>
+		<h2>Zadání</h2>
+			<form name="palindromVstup">
+				<label for="palindromText">Zadejte text k vyhodnocení</label>
+				<textarea rows="3" cols="30" name="palindromText" id="palindromText"></textarea>
+				<button onclick="vyhodnotText(); return false;">Vyhodnotit text</button>
+			</form>
+		</section>
+		<section>
+		<h2>Vyhodnocení</h2>
+			<p id="vysledek"></p>
+		</section>
+		<section>
+		<h2>Nastavení</h2>
+		
+		</section>
+		
 			<h2>Jen test</h2>
 			<p>
 				Palindrom "abc":

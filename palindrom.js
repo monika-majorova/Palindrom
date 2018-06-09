@@ -45,9 +45,12 @@ function obratText(text) {
 	return text.split("").reverse().join("");
 }
 
-module.exports = {
-	jePalindrom: jePalindrom,
-	odstranDiakritiku: odstranDiakritiku,
-	odstranNealfanumerickeZnaky: odstranNealfanumerickeZnaky,
-	obratText: obratText
-	};  // allows CommonJS/Node.js require()
+// Zajištění možnosti spouštění testů přes Travis CI / Node.js.
+if (typeof module !== 'undefined') {
+	module.exports = {
+		jePalindrom: jePalindrom,
+		odstranDiakritiku: odstranDiakritiku,
+		odstranNealfanumerickeZnaky: odstranNealfanumerickeZnaky,
+		obratText: obratText
+		};
+}
