@@ -17,7 +17,7 @@ function smallTest() {
 
 function vyhodnotText() {
 	var text = document.palindromVstup.palindromText.value;
-	if (palindromNastaveni.coRadekToText.checked) {
+	if (palindromVstup.coRadekToText.checked) {
 		var texty = text.split("\n");
 		document.getElementById("vysledek").innerHTML = "";
 		for(var i = 0; i < texty.length; i++) {
@@ -48,5 +48,11 @@ function jeCssVlastnostPodporovana(vlastnost, hodnota) {
 		}
 	} else {
 		return false; // Vlastnost není podporována.
+	}
+}
+
+function textareaOdesilac(event) {
+	if (event.key == "Enter" && event.ctrlKey) {
+		vyhodnotText();
 	}
 }

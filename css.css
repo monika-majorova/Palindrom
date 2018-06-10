@@ -27,17 +27,32 @@ header p a {
 
 section {
 	margin: 10px;
-	border: 1px solid black;
+	border: 2px outset black;
 	border-radius: 10px;
+	background-color: #dddddd;
 }
 
 section h2 {
-	margin: 0px 10px;
+	margin: 0px;
+	padding: 0px 10px;
 	text-align: left;
 	font-size: medium;
 	font-weight: normal;
 	font-variant: small-caps;
 	border-bottom: 1px solid grey;
+	border-radius: 10px 10px 0px 0px;
+}
+
+section.zadani h2 {
+	background: linear-gradient(to right, lime, transparent);
+}
+
+section.vyhodnoceni h2 {
+	background: linear-gradient(to right, magenta, transparent);
+}
+
+section.informace h2 {
+	background: linear-gradient(to right, cyan, transparent);
 }
 
 form {
@@ -54,6 +69,11 @@ form button {
 	color: white;
 	padding: 10px;
 	margin: 10px;
+}
+
+form button div {
+	font-size: x-small;
+	color: #bbbbbb;
 }
 
 .uspech {

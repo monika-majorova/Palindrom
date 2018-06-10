@@ -14,29 +14,27 @@
 		</header>
 		<noscript><span class="neuspech">Nemáte v prohlížeči zapnutý JavaScript nebo váš prohlížeč JavaScript nepodporuje.
 		Bez podpory JavaScriptu nebude bohužel tato JavaScriptová aplikace fungovat.</span></noscript>
-		<section>
+		<section class="zadani">
 			<h2>Zadání</h2>
 			<form name="palindromVstup">
 				<label for="palindromText">Zadejte text k vyhodnocení</label><br>
-				<textarea rows="3" cols="30" name="palindromText" id="palindromText"></textarea><br>
-				<button type="button" onclick="vyhodnotText();">Vyhodnotit text</button>
-			</form>
-		</section>
-		<section>
-			<h2>Vyhodnocení</h2>
-			<p id="vysledek"></p>
-		</section>
-		<section>
-			<h2>Nastavení</h2>
-			<form name="palindromNastaveni">
+				<textarea rows="3" cols="30" name="palindromText" id="palindromText" onkeydown="textareaOdesilac(event);"></textarea><br>
 				<input type="checkbox" name="coRadekToText" id="coRadekToText">
-				<label for="coRadekToText">Co řádek to samostatný text k vyhodnocení</label>
+				<label for="coRadekToText">Co řádek to samostatný text k vyhodnocení</label><br>
+				<button type="button" onclick="vyhodnotText();">Vyhodnotit text<div>(CTRL + ENTER)</div></button>
 			</form>
 		</section>
-		<section>
+		<section class="vyhodnoceni">
+			<h2>Vyhodnocení</h2>
+			<p id="vysledek">Nejprve zadejte text a stiskněte tlačítko Vyhodnotit text.</p>
+		</section>
+		<section class="informace">
 			<h2>Informace</h2>
 			<p><a href="javascript:smallTest();">Otestovat funkčnost aplikace</a></p>
 			<p id="vysledekTestu"></p>
+			<p>
+				Aplikace vyhodnocuje, zda zadaný text je nebo není palindrom, přičemž nebere v úvahu velikost písmen, diakritiku ani jiné znaky než písmena (A-ž) a čísla (0-9).
+			</p>
 		</section>
 	</body>
 </html>
