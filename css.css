@@ -61,6 +61,8 @@ form {
 
 form textarea {
 	width: 450px;
+	min-width: 450px;
+	max-width: 450px;
 }
 
 form button {
