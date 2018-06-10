@@ -115,7 +115,7 @@ test('Testování palindromu (nepochopen)', function(assert) {
   assert.equal(palindrom.jePalindrom("nepochopen"), false);
 });
 
-test('Testování palindromu (nepochopen)', function(assert) {
+test('Testování palindromu (nepochopen) s nastavením "chJakoJedenZnak"', function(assert) {
   assert.equal(palindrom.jePalindrom("nepochopen", true), true);
 });
 
