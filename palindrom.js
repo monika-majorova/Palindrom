@@ -5,6 +5,9 @@ function jePalindrom(vstupniText) {
 	var text = odstranDiakritiku(vstupniText);
 	text = odstranNealfanumerickeZnaky(text);
 	text = text.toLowerCase();
+	if (text === "") {
+		return null;
+	}
 	var obracenyText = obratText(text);
 	return obracenyText === text;
 }

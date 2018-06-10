@@ -3,50 +3,38 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Palindrom</title>
+		<link rel="stylesheet" type="text/css" href="css.css">
 		<script src="palindrom.js"></script>
-		<script>
-			function vyhodnotText() {
-				var text = document.palindromVstup.palindromText.value;
-				alert("Test: Vyhodnocuji text \"" + text + "\".");
-				document.getElementById("vysledek").innerHTML = jePalindrom(text) ? "Jedná se o palindrom." : "Toto není palindrom.";
-			}
-		</script>
+		<script src="gui.js"></script>
 	</head>
-	<body>
+	<body onload="init();">
 		<header>
 			<h1>Palindrom</h1>
-			<p>Aplikace pro zjišťování, zda je zadaný text palindrom</p>
+			<p>Aplikace pro zjišťování, zda je zadaný text <a href="https://cs.wikipedia.org/wiki/Palindrom">palindrom</a></p>
 		</header>
 		<section>
-		<h2>Zadání</h2>
+			<h2>Zadání</h2>
 			<form name="palindromVstup">
-				<label for="palindromText">Zadejte text k vyhodnocení</label>
-				<textarea rows="3" cols="30" name="palindromText" id="palindromText"></textarea>
-				<button onclick="vyhodnotText(); return false;">Vyhodnotit text</button>
+				<label for="palindromText">Zadejte text k vyhodnocení</label><br>
+				<textarea rows="3" cols="30" name="palindromText" id="palindromText"></textarea><br>
+				<button type="button" onclick="vyhodnotText();">Vyhodnotit text</button>
 			</form>
 		</section>
 		<section>
-		<h2>Vyhodnocení</h2>
+			<h2>Vyhodnocení</h2>
 			<p id="vysledek"></p>
 		</section>
 		<section>
-		<h2>Nastavení</h2>
-		
+			<h2>Nastavení</h2>
+			<form name="palindromNastaveni">
+				<input type="checkbox" name="coRadekToText" id="coRadekToText">
+				<label for="coRadekToText">Co řádek to samostatný text k vyhodnocení</label>
+			</form>
 		</section>
-		
-			<h2>Jen test</h2>
-			<p>
-				Palindrom "abc":
-				<script>
-					document.write(jePalindrom("abc"));
-				</script>
-			</p>
-			<h2>Jen test 2</h2>
-			<p>
-				Palindrom "aaa":
-				<script>
-					document.write(jePalindrom("aaa"));
-				</script>
-			</p>
+		<section>
+			<h2>Informace</h2>
+			<p><a href="javascript:smallTest();">Otestovat funkčnost aplikace</a></p>
+			<p id="vysledekTestu"></p>
+		</section>
 	</body>
 </html>
