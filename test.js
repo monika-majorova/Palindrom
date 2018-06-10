@@ -111,6 +111,30 @@ test('Testování palindromu (tahat)', function(assert) {
   assert.equal(palindrom.jePalindrom("tahat"), true);
 });
 
+test('Testování palindromu (nepochopen)', function(assert) {
+  assert.equal(palindrom.jePalindrom("nepochopen"), false);
+});
+
+test('Testování palindromu (nepochopen)', function(assert) {
+  assert.equal(palindrom.jePalindrom("nepochopen", true), true);
+});
+
+test('Testování palindromu (nepotopen)', function(assert) {
+  assert.equal(palindrom.jePalindrom("nepotopen"), true);
+});
+
+test('Testování palindromu (nezasazen)', function(assert) {
+  assert.equal(palindrom.jePalindrom("nezasazen"), true);
+});
+
+test('Testování palindromu (nezařazen)', function(assert) {
+  assert.equal(palindrom.jePalindrom("nezařazen"), true);
+});
+
+test('Testování palindromu (nezaházen)', function(assert) {
+  assert.equal(palindrom.jePalindrom("nezaházen"), true);
+});
+
 test('Testování palindromu (Jelenovi pivo nelej!)', function(assert) {
   assert.equal(palindrom.jePalindrom("Jelenovi pivo nelej!"), true);
 });

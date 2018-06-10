@@ -18,10 +18,12 @@
 			<h2>Zadání</h2>
 			<form name="palindromVstup">
 				<label for="palindromText">Zadejte text k vyhodnocení</label><br>
-				<textarea rows="3" cols="30" name="palindromText" id="palindromText" onkeydown="textareaOdesilac(event);"></textarea><br>
+				<textarea rows="3" cols="30" name="palindromText" id="palindromText" onkeydown="textareaOdesilac(event, document.palindromVstup.palindromText.value, palindromVstup.coRadekToText.checked, document.getElementById('vysledek'), palindromVstup.chJakoJedenZnak.checked);"></textarea><br>
 				<input type="checkbox" name="coRadekToText" id="coRadekToText">
 				<label for="coRadekToText">Co řádek to samostatný text k vyhodnocení</label><br>
-				<button type="button" onclick="vyhodnotText();">Vyhodnotit text<div>(CTRL + ENTER)</div></button>
+				<input type="checkbox" name="chJakoJedenZnak" id="chJakoJedenZnak">
+				<label for="chJakoJedenZnak">Písmeno ch jako jeden znak</label><br>
+				<button type="button" onclick="vyhodnotCelyText(document.palindromVstup.palindromText.value, palindromVstup.coRadekToText.checked, document.getElementById('vysledek'), palindromVstup.chJakoJedenZnak.checked);">Vyhodnotit text<div>(CTRL + ENTER)</div></button>
 			</form>
 		</section>
 		<section class="vyhodnoceni">
@@ -30,7 +32,7 @@
 		</section>
 		<section class="informace">
 			<h2>Informace</h2>
-			<p><a href="javascript:smallTest();">Otestovat funkčnost aplikace</a></p>
+			<p><a href="javascript:testAplikace(document.getElementById('vysledekTestu'));">Otestovat funkčnost aplikace</a></p>
 			<p id="vysledekTestu"></p>
 			<p>
 				Aplikace vyhodnocuje, zda zadaný text je nebo není palindrom, přičemž nebere v úvahu velikost písmen, diakritiku ani jiné znaky než písmena (A-ž) a čísla (0-9).

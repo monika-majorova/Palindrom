@@ -1,12 +1,15 @@
 /**
 Zjistí, zda je text palindrom (true) nebo není (false).
 */
-function jePalindrom(vstupniText) {
+function jePalindrom(vstupniText, chJakoJedenZnak) {
 	var text = odstranDiakritiku(vstupniText);
 	text = odstranNealfanumerickeZnaky(text);
 	text = text.toLowerCase();
 	if (text === "") {
 		return null;
+	}
+	if (chJakoJedenZnak) {
+		text = text.replace(/ch/g, "_")
 	}
 	var obracenyText = obratText(text);
 	return obracenyText === text;

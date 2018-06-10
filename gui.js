@@ -5,31 +5,30 @@ function init() {
 	}
 }
 
-function smallTest() {
+function testAplikace(elementProVysledekTestu) {
 	if (typeof jePalindrom === 'undefined') {
-		document.getElementById("vysledekTestu").innerHTML = "<span class=\"neuspech\">Nepodařilo se načíst funkci pro kontrolu palindromů</span>";
+		elementProVysledekTestu.innerHTML = "<span class=\"neuspech\">Nepodařilo se načíst funkci pro kontrolu palindromů</span>";
 	} else if (jePalindrom("abc") === false && jePalindrom("aaa") === true) {
-		document.getElementById("vysledekTestu").innerHTML = "<span class=\"uspech\">Vyhodnocování palindromů funguje.</span>";
+		elementProVysledekTestu.innerHTML = "<span class=\"uspech\">Vyhodnocování palindromů funguje.</span>";
 	} else {
-		document.getElementById("vysledekTestu").innerHTML = "<span class=\"neuspech\">Vyhodnocování palindromů nepracuje správně.</span>";
+		elementProVysledekTestu.innerHTML = "<span class=\"neuspech\">Vyhodnocování palindromů nepracuje správně.</span>";
 	}
 }
 
-function vyhodnotText() {
-	var text = document.palindromVstup.palindromText.value;
-	if (palindromVstup.coRadekToText.checked) {
+function vyhodnotCelyText(text, coRadekToText, elementProVysledek, chJakoJedenZnak) {
+	if (coRadekToText) {
 		var texty = text.split("\n");
-		document.getElementById("vysledek").innerHTML = "";
+		elementProVysledek.innerHTML = "";
 		for(var i = 0; i < texty.length; i++) {
-			document.getElementById("vysledek").innerHTML += hodnoceniTextu(texty[i]) + (i < texty.length - 1 ? "<br>\n" : "");
+			elementProVysledek.innerHTML += vyhodnotText(texty[i], chJakoJedenZnak) + (i < texty.length - 1 ? "<br>\n" : "");
 		}
 	} else {
-		document.getElementById("vysledek").innerHTML = hodnoceniTextu(text);
+		elementProVysledek.innerHTML = vyhodnotText(text, chJakoJedenZnak);
 	}
 }
 
-function hodnoceniTextu(text) {
-	var vysledek = jePalindrom(text);
+function vyhodnotText(text, chJakoJedenZnak) {
+	var vysledek = jePalindrom(text, chJakoJedenZnak);
 	if (vysledek === null) {
 		return "<span class=\"varovani\">Nebyl zadán žádný platný text.</span>";
 	} else {
@@ -51,8 +50,8 @@ function jeCssVlastnostPodporovana(vlastnost, hodnota) {
 	}
 }
 
-function textareaOdesilac(event) {
+function textareaOdesilac(event, text, coRadekToText, elementProVysledek, chJakoJedenZnak) {
 	if (event.key == "Enter" && event.ctrlKey) {
-		vyhodnotText();
+		vyhodnotCelyText(text, coRadekToText, elementProVysledek, chJakoJedenZnak);
 	}
 }
