@@ -22,7 +22,7 @@ header p {
 }
 
 header p a {
-	color: linear-gradient(to right, gray, white);
+	color: grey;
 }
 
 section {
