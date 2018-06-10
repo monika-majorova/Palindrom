@@ -19,10 +19,12 @@
 			<form name="palindromVstup">
 				<label for="palindromText">Zadejte text k vyhodnocení</label><br>
 				<textarea rows="3" cols="30" name="palindromText" id="palindromText" onkeydown="textareaOdesilac(event, document.palindromVstup.palindromText.value, palindromVstup.coRadekToText.checked, document.getElementById('vysledek'), palindromVstup.chJakoJedenZnak.checked);"></textarea><br>
-				<input type="checkbox" name="coRadekToText" id="coRadekToText">
-				<label for="coRadekToText">Co řádek to samostatný text k vyhodnocení</label><br>
-				<input type="checkbox" name="chJakoJedenZnak" id="chJakoJedenZnak">
-				<label for="chJakoJedenZnak">Písmeno ch jako jeden znak</label><br>
+				<div class="nastaveni">
+					<input type="checkbox" name="coRadekToText" id="coRadekToText">
+					<label for="coRadekToText">Co řádek to samostatný text k vyhodnocení</label><br>
+					<input type="checkbox" name="chJakoJedenZnak" id="chJakoJedenZnak">
+					<label for="chJakoJedenZnak">Písmeno ch jako jeden znak</label><br>
+				</div>
 				<button type="button" onclick="vyhodnotCelyText(document.palindromVstup.palindromText.value, palindromVstup.coRadekToText.checked, document.getElementById('vysledek'), palindromVstup.chJakoJedenZnak.checked);">Vyhodnotit text<div>(CTRL + ENTER)</div></button>
 			</form>
 		</section>
@@ -34,8 +36,17 @@
 			<h2>Informace</h2>
 			<p><a href="javascript:testAplikace(document.getElementById('vysledekTestu'));">Otestovat funkčnost aplikace</a></p>
 			<p id="vysledekTestu"></p>
-			<p>
-				Aplikace vyhodnocuje, zda zadaný text je nebo není palindrom, přičemž nebere v úvahu velikost písmen, diakritiku ani jiné znaky než písmena (A-ž) a čísla (0-9).
+			<p class="napoveda">
+				Aplikace vyhodnocuje, zda zadaný text je nebo není palindrom, přičemž nebere v úvahu velikost písmen, diakritiku ani jiné znaky než písmena (A-ž) a čísla (0-9). Zadaný text se nikam neposílá, je vyhodnocen přímo v prohlížeči. Vyhodnocování dlouhých textů (např. 1 000 000 znaků) může několik sekund trvat a prohlížeč může na chvíli "zamrznout", v závislosti na výkonu počítače a prohlížeče.
+			</p>
+			<p class="napoveda">
+				Zadejte text k vyhodnocení do políčka výše a stiskněte tlačítko <b>Vyhodnotit text</b>.
+			</p>
+			<p class="napoveda">
+				Pokud je zaškrtnuta volba <b>Co řádek to samostatný text k vyhodnocení</b>, vyhodnocuje se každý řádek zvlášť, v opačném případě se vyhodnocuje celý obsah políčka najednou.
+			</p>
+			<p class="napoveda">
+				Pokud je zaškrtnuta volba <b>Písmeno ch jako jeden znak</b>, uvažuje se písmeno <i>ch</i> jako jeden znak, tedy podle české abecedy. V takovém případě je např. slovo "nepochopen" vyhodnoceno správně jako palindrom, pokud je tato volba vypnuta, uvažuje se <i>ch</i> jako dvě písmena, což je vhodnější pro vyhodnocování cizojazyčných textů.
 			</p>
 		</section>
 	</body>

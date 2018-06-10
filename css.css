@@ -87,3 +87,13 @@ form button div {
 .neuspech {
 	color: red;
 }
+
+.nastaveni {
+	text-align: left;
+	padding: 5px;
+}
+
+.napoveda {
+	text-align: left;
+	padding: 0px 10px;
+}
