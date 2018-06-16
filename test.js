@@ -1,3 +1,5 @@
+// Tento skript není určen pro provoz z prohlížeče, ale pro spuštění pomocí služby Travis CI s nastavením JavaScript (Node.js).
+
 var QUnit = require('qunitjs'); // Načíst modul QUnit node.js module pro testování.
 var test = QUnit.test; // Uložit kopii QUnit.test.
 require('qunit-tap')(QUnit, console.log); // Použít console.log pro výstup testu.

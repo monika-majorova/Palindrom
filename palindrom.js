@@ -6,10 +6,10 @@ function jePalindrom(vstupniText, chJakoJedenZnak) {
 	text = odstranNealfanumerickeZnaky(text);
 	text = text.toLowerCase();
 	if (text === "") {
-		return null;
+		return null; // Pokud nám po úpravách nezbyl žádný text (nebyly zadány žádné znaky A-ž či 0-9), není co kontrolovat.
 	}
 	if (chJakoJedenZnak) {
-		text = text.replace(/ch/g, "_")
+		text = text.replace(/ch/g, "_"); // Úpravou "ch" na "_" jednoduše zajistíme zpracování "ch" jako jednoho znaku. Znak "_" (ani jiný obdobný znak) se v tuto chvíli již v textu nevyskytuje, od této chvíle to tedy může být jedině "ch".
 	}
 	var obracenyText = obratText(text);
 	return obracenyText === text;
@@ -19,11 +19,12 @@ function jePalindrom(vstupniText, chJakoJedenZnak) {
 Odstraní diakritiku z textu.
 */
 function odstranDiakritiku(text) {
+	// Znak z první proměnné bude nahrazen znakem z druhé proměnné na stejné pozici. Pouhou úpravou těchto seznamů lze případně zajistit odstranění diakritiky z dalších znaků / jazyků.
 	var znakySDiakritikou	= "áäčçďéěëíĺľňóôőöřŕšťúůűüýžÁÄČÇĎÉĚËÍĹĽŇÓÔŐÖŘŔŠŤÚŮŰÜÝŽ";
 	var znakyBezDiakritiky	= "aaccdeeeillnoooorrstuuuuyzAACCDEEEILLNOOOORRSTUUUUYZ";
 	
 	var vysledek = "";
-	var poziceZnakuVSeznamu = -1;
+	var poziceZnakuVSeznamu = -1; // Pozice aktuálního znaku v seznamu znakySDiakritikou. Pokud se tam nevyskytuje, je zde -1.
 	for (i = 0; i < text.length; i++) {
 		poziceZnakuVSeznamu = znakySDiakritikou.indexOf(text.charAt(i));
 		if (poziceZnakuVSeznamu != -1) {
